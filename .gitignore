@@ -11,7 +11,6 @@ app/route_optimization/data/raw_ais
 
 # Jupyter Notebooks
 .ipynb_checkpoints/
-*.ipynb
 
 # IDE specific
 .idea/

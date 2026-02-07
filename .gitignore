@@ -6,8 +6,6 @@ __pycache__/
 venv/
 *.egg-info/
 
-# Data & Models - Exclude large files from Git
-app/route_optimization/data/raw_ais
 
 # Jupyter Notebooks
 .ipynb_checkpoints/

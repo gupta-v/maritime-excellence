@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+.env
+.venv
+venv/
+*.egg-info/
+
+# Data & Models - Exclude large files from Git
+app/route_optimization/data/raw_ais
+app/*/data/processed/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# IDE specific
+.idea/
+.vscode/
+
+# Other
+.cache/
+.cache.sqlite

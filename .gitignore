@@ -8,7 +8,6 @@ venv/
 
 # Data & Models - Exclude large files from Git
 app/route_optimization/data/raw_ais
-app/*/data/processed/
 
 # Jupyter Notebooks
 .ipynb_checkpoints/

@@ -17,7 +17,7 @@ The Maritime Excellence Platform combines cutting-edge machine learning and grap
 ```
 maritime-excellence/
 ├── app/
-│   ├── route_optimization/         # GNN-based route planning
+│   ├── route_optimization/         # GNN + RL based
 │   ├── predictive_maintainance/    # LSTM-based RUL prediction
 │   └── operational_efficiency/     # Fuel efficiency optimization
 ├── documentation/
@@ -70,7 +70,7 @@ An advanced maritime routing system that combines **Graph Neural Networks (GNN)*
 **Reinforcement Learning Results:**
 - Success Rate: **100%** on test routes
 - Path Length: **2.4 steps average** (82-92% shorter than historical routes)
-- Episode Training Time: ~3.5 hours for 4,500 episodes
+- Episode Training Time: 5 hrs
 
 ### Directory Structure
 
@@ -348,7 +348,7 @@ py pipeline/2_train_model.py
 py pipeline/3_run_inference.py
 ```
 
-**Training Time**: ~2-5 seconds on modern hardware
+**Training Time**: 5-10 mins on low epochs
 
 ### Dataset Information
 
@@ -371,7 +371,8 @@ py pipeline/3_run_inference.py
 
 1. **Clone the repository**
 ```bash
-cd d:\Downloads\be-proj\maritime-excellence
+git clone <repository-url>
+cd maritime-excellence
 ```
 
 2. **Install dependencies**
@@ -553,4 +554,16 @@ The Maritime Excellence Platform integrates data from multiple authoritative sou
 - **Operational Data**: Torque, RPM, Thrust
 - **Environmental Data**: Temperature, Pressure, Humidity
 - **Degradation Signals**: Equipment decay coefficients
+
+### 5. Ship Fuel Consumption and CO2 Emissions (Kaggle)
+
+**Description**: Simulated maritime operations dataset for fuel consumption and CO2 emissions analysis
+
+**Link**: [Kaggle Dataset](https://www.kaggle.com/datasets/jeleeladekunlefijabi/ship-fuel-consumption-and-co2-emissions-analysis)
+
+**Key Data Features**:
+- **Ship Type**: 4 types (Fishing Trawler, Oil Service Boat, Surfer Boat, Tanker Ship)
+- **Fuel Consumption (Liters)**: Total fuel consumed during operations
+- **CO2 Emission (Kg)**: Carbon dioxide emissions based on fuel consumption
+- **Supporting Variables**: Fuel type, engine efficiency, distance, weather conditions, monthly patterns
 

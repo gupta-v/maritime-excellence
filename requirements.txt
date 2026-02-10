@@ -9,6 +9,8 @@ gymnasium
 torch
 torch-geometric
 
+tensorflow
+keras
 
 scikit-learn
 

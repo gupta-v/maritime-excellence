@@ -8,17 +8,21 @@ import sys
 import numpy as np
 import matplotlib.pyplot as plt
 import pickle
+from pathlib import Path
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 from tensorflow.keras.models import load_model
 
 # Add parent directory to path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+
+# Get absolute path to models directory
+MODELS_DIR = Path(__file__).resolve().parent.parent / "models"
 
 
-def evaluate_model(model_path: str = "../models/rul_lstm_model.keras",
-                  X_test_path: str = "../models/X_test.npy",
-                  y_test_path: str = "../models/y_test.npy",
-                  rul_scaler_path: str = "../models/rul_scaler.save",
+def evaluate_model(model_path = None,
+                  X_test_path = None,
+                  y_test_path = None,
+                  rul_scaler_path = None,
                   plot_results: bool = True):
     """
     Evaluate trained model on test data.
@@ -33,6 +37,16 @@ def evaluate_model(model_path: str = "../models/rul_lstm_model.keras",
     Returns:
         Dictionary with metrics and predictions
     """
+    # Set default paths if not provided
+    if model_path is None:
+        model_path = MODELS_DIR / "rul_lstm_model.keras"
+    if X_test_path is None:
+        X_test_path = MODELS_DIR / "X_test.npy"
+    if y_test_path is None:
+        y_test_path = MODELS_DIR / "y_test.npy"
+    if rul_scaler_path is None:
+        rul_scaler_path = MODELS_DIR / "rul_scaler.save"
+    
     print("=" * 60)
     print("EVALUATION PIPELINE")
     print("=" * 60)
@@ -103,8 +117,9 @@ def evaluate_model(model_path: str = "../models/rul_lstm_model.keras",
         plt.grid(True, alpha=0.3)
         
         plt.tight_layout()
-        plt.savefig('../models/evaluation_results.png', dpi=150)
-        print("Saved plot to ../models/evaluation_results.png")
+        plot_path = MODELS_DIR / "evaluation_results.png"
+        plt.savefig(plot_path, dpi=150)
+        print(f"Saved plot to {plot_path}")
         plt.show()
     
     results = {
